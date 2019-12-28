@@ -1,0 +1,20 @@
+${notify_destination}
+
+* cluster:: {{cluster_name}}
+
+{{#host}}
+* host:: {{host}}
+{{/host}}
+{{#node_name}}
+* node:: {{node_name}}
+{{/node_name}}
+{{#index_name}}
+* index:: {{index_name}}
+{{/index_name}}
+{{#task_name}}
+* task:: {{task_name}}(v{{task_version}})
+{{/task_name}}
+
+* threshold:: {{threshold}} 
+* warn_threshold:: {{warn_threshold}} 
+* current_value:: {{value}}

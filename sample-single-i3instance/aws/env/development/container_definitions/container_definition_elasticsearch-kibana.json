@@ -1,0 +1,41 @@
+[
+  {
+    "name": "${container_name}",
+    "image": "${account_id}.dkr.ecr.ap-northeast-1.amazonaws.com/${ecr_name}:${ecr_version}",
+    "cpu": null,
+    "memory": null,
+    "memoryReservation": ${memory_reservation},
+    "essential": true,
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "secretOptions": null,
+      "options": {
+        "awslogs-group": "${awslogs_log_group}",
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "KibanaNode"
+      }
+    },
+    "ulimits": [
+      {
+        "name": "nofile",
+        "softLimit": 65536,
+        "hardLimit": 65536
+      },
+      {
+        "name": "memlock",
+        "softLimit": -1,
+        "hardLimit": -1
+      }
+    ],
+    "portMappings": [
+      {
+        "hostPort": 5601,
+        "protocol": "tcp",
+        "containerPort": 5601
+      }
+    ],
+    "environment": [],
+    "secrets": [],
+    "mountPoints": []
+  }
+]
